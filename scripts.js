@@ -1,6 +1,9 @@
 var currentPage = window.location.pathname;
 console.log(currentPage)
 var navigation = document.getElementById("navigation")
+var pages = {
+
+}
 var navLinks = [{
     "file": "/",
     "label": "Home"
@@ -17,6 +20,15 @@ var navLinks = [{
     "file": "/social.html",
     "label": "Social"
   },
+  {
+    "file": "personal.html",
+    "label": "About Me"
+  },
+  {
+    "file": "https://discord.gg/xAw9wCz",
+    "label": "Discord",
+    "target": "_blank"
+  },
 
 ]
 
@@ -30,17 +42,21 @@ navigation.innerHTML = navHtml
 var navItems = document.getElementById("nav")
 var logoEl = `<div id="logo"><img src="/images/logo.png" /></div>`;
 navigation.insertAdjacentHTML('afterbegin', logoEl)
+var logobgEl = `<div id="bglogo"><img src="/images/bglogo.png" /></div>`;
+document.body.insertAdjacentHTML('beforeend', logobgEl)
 
 navLinks.forEach((item) => {
-  createNavLink(item.file, item.label)
+  createNavLink(item.file, item.label, item.target)
 })
 
-function createNavLink(file, label) {
+function createNavLink(file, label, target = "_self") {
   var classNames = "navlink"
   if (currentPage === file) {
     classNames = classNames + " active"
   }
   console.log(file + ": " + classNames);
-  var item = `<li class="${classNames}"><a href="${file}">${label}</a></li>`;
+  var item = `<li class="${classNames}"><a href="${file}" target="${target}">${label}</a></li>`;
   navItems.insertAdjacentHTML('beforeend', item)
 }
+
+document.title = `ShiftFPV - ${window.location.pathname.replace('/','').replace('.html','')}`;
