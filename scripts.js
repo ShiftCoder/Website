@@ -2,7 +2,7 @@ var currentPage = window.location.pathname;
 console.log(currentPage)
 var navigation = document.getElementById("navigation")
 var navLinks = [{
-    "file": "/homepage.html",
+    "file": "/",
     "label": "Home"
   },
   {
