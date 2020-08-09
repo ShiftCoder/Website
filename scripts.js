@@ -1,39 +1,46 @@
+var currentPage = window.location.pathname;
+console.log(currentPage)
 var navigation = document.getElementById("navigation")
-var navLinks = [
-  {
-    "file": "homepage",
+var navLinks = [{
+    "file": "/homepage.html",
     "label": "Home"
   },
   {
-    "file": "dog",
-    "label": "My Dog"
+    "file": "/videos.html",
+    "label": "FPV"
   },
   {
-    "file": "Youtube",
-    "label": "My Videos"
+    "file": "/gaming.html",
+    "label": "Gaming"
   },
   {
-    "file": "contact",
-    "label": "Contact Me"
+    "file": "/social.html",
+    "label": "Social"
   },
-  {
-    "file": "hello",
-    "label": "Hello Man"
-  }
+
 ]
 
 
 var navHtml = `
-<table border="1">
-  <tr id="nav">
-  </tr>
-</table>`
-
+<ul id="nav"></ul>`
 
 navigation.innerHTML = navHtml
 
+// INSERT THE LOGO
 var navItems = document.getElementById("nav")
+var logoEl = `<div id="logo"><img src="/images/logo.png" /></div>`;
+navigation.insertAdjacentHTML('afterbegin', logoEl)
+
 navLinks.forEach((item) => {
-  var item = `<td><a href="${item.file}.html">${item.label}</a></td>`;
-  navItems.insertAdjacentHTML('beforeend',item)
+  createNavLink(item.file, item.label)
 })
+
+function createNavLink(file, label) {
+  var classNames = "navlink"
+  if (currentPage === file) {
+    classNames = classNames + " active"
+  }
+  console.log(file + ": " + classNames);
+  var item = `<li class="${classNames}"><a href="${file}">${label}</a></li>`;
+  navItems.insertAdjacentHTML('beforeend', item)
+}

@@ -1,3 +1,83 @@
+/* GLOBAL */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+
 body {
-  font-family: "Comic Sans MS";
+  background-color: black;
+  font-family: 'Roboto', sans-serif;
+  color: #c7c7c7;
+}
+
+a {
+  color: #3E3E3E;
+  text-decoration: none
+}
+
+/* LAYOUT */
+#navigation {
+  position: fixed;
+  width: 208px;
+  height: 100%;
+  left: 0px;
+  top: 0px;
+}
+
+#navigation:after {
+  content: "";
+  height: 95%;
+  width: 1px;
+  background-color: #4A4A4A;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 0;
+}
+
+#navigation>ul {
+  list-style: none;
+}
+
+#navigation>ul>li {
+  padding-bottom: 22px;
+}
+
+#logo {
+  text-align: center;
+  padding-bottom: 22px;
+  padding-top: 40px;
+}
+
+#content {
+  padding: 15px;
+  position: absolute;
+  width: calc(100% - 208px);
+  height: 100%;
+  left: 208px;
+  top: 0px;
+}
+
+.navlink {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 33.72px;
+  line-height: 40px;
+  /* identical to box height */
+
+  letter-spacing: 0.06em;
+
+
+}
+
+.navlink a {
+  color: #3E3E3E;
+  transition: 0.5s ease all;
+}
+
+.navlink a:hover {
+  color: #FFFFFF;
+}
+
+.navlink.active a {
+  color: #FFFFFF;
+  transition: 0.5s ease all;
 }
